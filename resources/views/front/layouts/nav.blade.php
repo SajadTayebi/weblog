@@ -8,8 +8,6 @@
         <li class="drop-down"><a href="">منوی کاربری</a>
             <ul>
                 @auth
-                    <form action="{{route('logout')}}" method="post">
-                        @csrf
                         <li>
                             <a href="">پروفایل کاربری</a>
                         </li>
@@ -18,6 +16,8 @@
                                 <a href="{{route('admin.panel')}}">پنل مدیریت</a>
                             </li>
                         @endif
+                    <form action="{{route('logout')}}" method="post">
+                        @csrf
                         <li>
                             <button class="btn btn-success btn-block">خروج</button>
                         </li>
