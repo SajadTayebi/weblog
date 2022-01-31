@@ -4,10 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card mt-2">
+            <div class="card mt-4 mb-3">
                 <div class="card-header">ورود</div>
 
                 <div class="card-body">
+                    @include('front.layouts.message')
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -17,11 +18,11 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+{{--                                @error('email')--}}
+{{--                                    <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{$message}}</strong>--}}
+{{--                                    </span>--}}
+{{--                                @enderror--}}
                             </div>
                         </div>
 
@@ -31,11 +32,11 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+{{--                                @error('password')--}}
+{{--                                    <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--                                @enderror--}}
                             </div>
                         </div>
 
@@ -53,13 +54,14 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <div class="form-group@error('g-recaptcha-response') is-invalid@enderror"> {!! htmlFormSnippet() !!}
-                                    @error('g-recaptcha-response')
-                                    <span class="text-danger">
-                                            فیلد عبارت امنیتی الزامی است
-                                        </span>
-                                    @enderror
+                                <div class="form-group@error('g-recaptcha-response') is-invalid@enderror mb-2"> {!! htmlFormSnippet() !!}
+{{--                                    @error('g-recaptcha-response')--}}
+{{--                                    <span class="text-danger">--}}
+{{--                                            فیلد عبارت امنیتی الزامی است--}}
+{{--                                        </span>--}}
+{{--                                    @enderror--}}
                                 </div>
+                                <a href="{{route('register')}}"><button type="button" class="btn btn-success">ثبت نام کاربر</button> </a>
                                 <button type="submit" class="btn btn-primary">
                                     ورود
                                 </button>

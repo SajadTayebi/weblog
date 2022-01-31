@@ -9,7 +9,7 @@
             <ul>
                 @auth
                         <li>
-                            <a href="">پروفایل کاربری</a>
+                            <a href="{{route('user.profile', ['user' => auth()->user()->id])}}">پروفایل کاربری</a>
                         </li>
                         @if(\Illuminate\Support\Facades\Auth::user()->role == 'admin')
                             <li>

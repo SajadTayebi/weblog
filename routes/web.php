@@ -13,10 +13,17 @@ use \Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes(['verify' => true]);
+Auth::routes();
 
-Route::get('/', [\App\Http\Controllers\front\HomeController::class, 'home'])->middleware('verified')->name('home');
+// Route For User
+Route::get('/', [\App\Http\Controllers\front\HomeController::class, 'home'])->name('home');
 
-Route::prefix('/admin')->middleware(['checkRole', 'auth', 'verified'])->group(function (){
+Route::get('/profile/{user}', [\App\Http\Controllers\front\ProfileController::class, 'profile'])->name('user.profile');
+Route::post('profile/update/{user}', [\App\Http\Controllers\front\ProfileController::class, 'update'])->name('submit_profile');
+
+
+
+// Route For Admin
+Route::prefix('/admin')->middleware(['checkRole', 'auth'])->group(function (){
     Route::get('/panel', [\App\Http\Controllers\back\adminController::class, 'index'])->name('admin.panel');
 });
